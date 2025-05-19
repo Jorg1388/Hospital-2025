@@ -1,7 +1,6 @@
 package vistas;
 import javax.swing.*;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -18,7 +17,7 @@ public class loginPanel {
       loginPanel = new JPanel();
       loginPanel.setSize(500, 800);
       loginPanel.setOpaque(true);
-      loginPanel.setBackground(Color.PINK);
+      loginPanel.setBackground(Color.WHITE);
       loginPanel.setLayout(new GridBagLayout());
 
       // ADMINISTRADOR DE DISEÑO - Propiedades generales que vamos a utilizar con los hijos
