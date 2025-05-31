@@ -1,11 +1,15 @@
 package vistas;
 import javax.swing.*;
+import java.awt.Dimension;
+
+import ventanas.Dashboard;
+import control.LoginControler;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.*;
 
 import javax.swing.JPanel;
 
@@ -39,17 +43,18 @@ public class loginPanel {
       loginPanel.add(titulo, gbc);
 
      //Entrada Correo
-     JTextField usuario = new JTextField("Usuario");
-     usuario.setPreferredSize(new Dimension(100, 35));
+     JTextField entradaCorreo = new JTextField();
+     entradaCorreo.setPreferredSize(new Dimension(100, 35));
      gbc.gridx = 1;
      gbc.gridy = 1;
-     loginPanel.add(usuario, gbc);
+     loginPanel.add(entradaCorreo, gbc);
 
      //Entrada Contraseña
-     JTextField contraseña = new JTextField("Contraseña");
+     JTextField contraseña = new JTextField();
      contraseña.setPreferredSize(new Dimension(100, 35));
      gbc.gridx = 1;
      gbc.gridy = 2;
+     contraseña.setText("");
      loginPanel.add(contraseña, gbc);
 
      //botón
@@ -60,6 +65,25 @@ public class loginPanel {
      gbc.anchor = GridBagConstraints.EAST;
      gbc.fill = GridBagConstraints.NONE;
      loginPanel.add(boton, gbc);
+
+
+     //Codigo del boton
+     boton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e ){
+
+            String entradaUsuario = entradaCorreo.getText();
+            String entradaContra = contraseña.getText();
+
+    if (new LoginControler().validacionDatos(entradaUsuario, entradaContra)) {
+        
+        new Dashboard();
+        JFrame ventanaPadre = (JFrame) SwingUtilities.getWindowAncestor(loginPanel);
+        ventanaPadre.dispose();
+    }
+        }
+    });
+    
     }
       
     public JPanel getPanel(){
