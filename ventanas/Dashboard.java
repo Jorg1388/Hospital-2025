@@ -10,11 +10,10 @@ public class Dashboard extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
 
-        this.setVisible(true);
-    }
+        Tabla tabla = new Tabla();
+        add(tabla);
 
-    public JFrame getDashboard() {
-        return this;
+        this.setVisible(true);
     }
 
 }

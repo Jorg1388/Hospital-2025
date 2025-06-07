@@ -10,14 +10,16 @@ public class LoginControler {
         {"ana", "libroRojo"}
     };
 
-    public boolean validacionDatos(String EUsuario, String EContrasenna) {
-        for (int i = 0; i < usuarios.length; i++) {
-            System.out.println(usuarios[i][0]);
-            if (usuarios[i][0].equals(EUsuario) && usuarios[i][1].equals(EContrasenna)) {
-                return true;
-            }
-        }
-        return false;
+public boolean validacionDatos(String EntradaUsuario, String EntradaContrasenna) {
+
+for (int i = 0; i < usuarios.length; i++) {
+    if (usuarios[i][0].equals(EntradaUsuario) && usuarios[i][1].equals(EntradaContrasenna)) {
+        return true; // Usuarios válidas
     }
 }
+return false; // Usuarios inválidas
+}
+}
+
+
 
