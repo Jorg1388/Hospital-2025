@@ -1,18 +1,19 @@
-package ventanas;
+package paneles;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import data.Pacientes;
 
 public class Tabla extends JScrollPane {
 
     public Tabla() {
 
         String[] columnas = {"ID", "Nombre", "Edad"};
-        Object[][] datos = {
-            {1, "Ana", 20},
-            {2, "Luis", 22},
-            {3, "María", 19}
-        };
+
+        Object[][] datos = new Pacientes().getDatos();
+   
+
 
 
         DefaultTableModel model = new DefaultTableModel(datos, columnas);
@@ -20,6 +21,6 @@ public class Tabla extends JScrollPane {
         
 
         this.setViewportView(table);
-        this.setBounds(50, 50, 400, 100);
+        this.setBounds(0, 0, 400, 800);
     }
 }

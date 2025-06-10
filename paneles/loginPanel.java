@@ -1,4 +1,4 @@
-package vistas;
+package paneles;
 import javax.swing.*;
 import java.awt.Dimension;
 
