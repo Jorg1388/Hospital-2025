@@ -9,7 +9,7 @@ public class Tabla extends JScrollPane {
 
     public Tabla() {
 
-        String[] columnas = {"Nombre", "Consulta General", "Hora"};
+        String[] columnas = { "ID", "Nombre", "Consulta General", "Hora"};
 
         Object[][] datos = new Pacientes().getDatos();
    
