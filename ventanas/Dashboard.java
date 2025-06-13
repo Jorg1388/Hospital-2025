@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import paneles.HeaderPanel;
 import paneles.MenuLateralPanel;
 import paneles.Tabla;
 
@@ -18,6 +19,8 @@ public class Dashboard extends JFrame {
         this.add(new MenuLateralPanel().getPanel(), BorderLayout.WEST);
         Tabla tabla = new Tabla();
         add(tabla);
+
+        this.add(new HeaderPanel().getPanel(), BorderLayout.NORTH);
 
         this.setVisible(true);
     }
