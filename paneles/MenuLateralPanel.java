@@ -1,6 +1,10 @@
 package paneles;
 
+import data.Medicamento;
+
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
 public class MenuLateralPanel extends JPanel {
@@ -43,11 +47,26 @@ public class MenuLateralPanel extends JPanel {
         cardLayout = new CardLayout();
         contentPanel = new JPanel(cardLayout);
 
-        // Paneles de contenido simulados
-        JPanel panelFarmacia = new JPanel();
-        panelFarmacia.add(new JLabel("Contenido de Farmacia"));
+//        PANEL FARMACIA CON MedicamentoPanel
+       List<Medicamento> listaMedicamentos = new ArrayList<>();
+
+for (int i = 1; i <= 20; i++) {
+    String nombre = "Medicamento " + i;
+    int cantidad = 10 + i; // cantidades: 11, 12, ..., 30
+    String fecha = "2025-12-" + (i < 10 ? "0" + i : i); // fechas: 2025-12-01 a 2025-12-20
+    int dosis = (i % 3) + 1; // dosis: 1, 2 o 3
+    listaMedicamentos.add(new Medicamento(nombre, cantidad, fecha, dosis));
+}
+
+
+
+        MedicamentoPanel panelMedicamentos = new MedicamentoPanel(listaMedicamentos);
+        JPanel panelFarmacia = panelMedicamentos.getPanel();
+
+        // Otros paneles
         JPanel panelResidencial = new JPanel();
         panelResidencial.add(new JLabel("Contenido de Residencial"));
+
         JPanel panelHistorial = new TablaHistorial().getPanel();
         JPanel panelPacientes = new TablaPacientes().getPanel();
 

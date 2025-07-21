@@ -1,16 +1,11 @@
 import java.awt.BorderLayout;
-
 import javax.swing.*;
-
 import paneles.bannerPanel;
 import paneles.loginPanel;
-
+import paneles.MenuLateralPanel; 
 public class Main {
 
     public static void main(String[] args) {
-        
-        
-        // ventana 
         JFrame miVentana = new JFrame(); 
         miVentana.setTitle("Hospital SCL"); 
         miVentana.setSize(1000, 800); 
@@ -22,11 +17,11 @@ public class Main {
         loginPanel loginPanel = new loginPanel();
         miVentana.add(loginPanel.getPanel(), BorderLayout.CENTER);
 
-        
-        // Panel Banner 
+        // Panel Banner
         bannerPanel BannerPanel = new bannerPanel();
         miVentana.add(BannerPanel.getBanner(), BorderLayout.WEST);
-        
+
+
         miVentana.setVisible(true);
     }
 }
