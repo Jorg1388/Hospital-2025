@@ -3,35 +3,33 @@ package paneles;
 import data.Medicamento;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
-public class MedicamentoPanel {
-    private JPanel panel;
+public class MedicamentoPanel extends JPanel {
 
     public MedicamentoPanel(List<Medicamento> listaMedicamentos) {
-        panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        this.setLayout(new BorderLayout());
 
-        // Columnas para la tabla
-        String[] columnas = {"Nombre", "Cantidad", "Vencimiento", "Dosis por día"};
+        // Nombres de las columnas
+        String[] columnas = {"Nombre", "Cantidad", "Fecha de Vencimiento", "Dosis por Día"};
+
+        // Llenar datos en una matriz
         Object[][] datos = new Object[listaMedicamentos.size()][4];
+        int fila = 0;
 
-        for (int i = 0; i < listaMedicamentos.size(); i++) {
-            Medicamento med = listaMedicamentos.get(i);
-            datos[i][0] = med.getNombreMedicamento();
-            datos[i][1] = med.getCantidadAsignada();
-            datos[i][2] = med.getFechaVencimiento();
-            datos[i][3] = med.getDosisPorDia();
+        for (Medicamento med : listaMedicamentos) {
+            datos[fila][0] = med.getNombreMedicamento();
+            datos[fila][1] = med.getCantidadAsignada();
+            datos[fila][2] = med.getFechaVencimiento();
+            datos[fila][3] = med.getDosisPorDia();
+            fila++;
         }
+
+        // Crear tabla y agregarla con scroll
 
         JTable tabla = new JTable(datos, columnas);
         JScrollPane scrollPane = new JScrollPane(tabla);
-
-        panel.add(new JLabel("Medicamentos Disponibles:"));
-        panel.add(scrollPane);
-    }
-
-    public JPanel getPanel() {
-        return panel;
+        this.add(scrollPane, BorderLayout.CENTER);
     }
 }

@@ -14,9 +14,9 @@ public class Dashboard extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
 
-        // Solo agregamos el menú lateral y el header
-        this.add(new MenuLateralPanel().getPanel(), BorderLayout.CENTER); // Cambiado a CENTER
-        this.add(new HeaderPanel().getPanel(), BorderLayout.NORTH);
+        // Agregar directamente los paneles
+        this.add(new HeaderPanel(), BorderLayout.NORTH);
+        this.add(new MenuLateralPanel(), BorderLayout.CENTER);
 
         this.setVisible(true);
     }
