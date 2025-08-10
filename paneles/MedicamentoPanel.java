@@ -6,9 +6,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+
 public class MedicamentoPanel extends JPanel {
 
     public MedicamentoPanel(List<Medicamento> listaMedicamentos) {
+        // Usar un BorderLayout para colocar la tabla en el centro
         this.setLayout(new BorderLayout());
 
         // Nombres de las columnas
@@ -27,9 +32,9 @@ public class MedicamentoPanel extends JPanel {
         }
 
         // Crear tabla y agregarla con scroll
-
         JTable tabla = new JTable(datos, columnas);
         JScrollPane scrollPane = new JScrollPane(tabla);
+
         this.add(scrollPane, BorderLayout.CENTER);
     }
 }
